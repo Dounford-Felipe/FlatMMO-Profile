@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flat MMO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://flatmmo.com/images/ui/f_gold_32.png">
+</head>
+<body>
+<main>
+    <div id="header" style="display: flex;align-items: center;">
+        <div style="margin-right: 20px;">
+            <img src="https://flatmmo.com/images/items/diamond.png" id="profileIcon" width="78">
+        </div>
+        <div style="font-size: 3rem;margin-right: 20px;">
+            <a id="username" href="#">felipewolf</a>
+        </div>
+        <div>
+            <img src="https://flatmmo.com/images/ui/skills_med.png" width="16">
+            <span id="level">1,000</span>
+            <img src="https://flatmmo.com/images/ui/quests_med.png" width="16">
+            <span id="quests">1/20</span>
+            <img src="https://flatmmo.com/images/ui/achievements_med.png" width="16">
+            <span id="achievements">1/80</span>
+        </div>
+    </div>
+    <div class="tabBtns">
+        <div id="skillsBtn" class="tabBtn activeTab" onclick="switchTab('skills')">CHARACTER/SKILLS</div>
+        <div id="achievementsBtn" class="tabBtn" onclick="switchTab('achievements')">ACHIEVEMENTS</div>
+        <div id="minigamesBtn" class="tabBtn" onclick="switchTab('minigames')">MINIGAMES</div>
+        <div id="enemiesBtn" class="tabBtn" onclick="switchTab('enemies')">ENEMIES</div>
+    </div>
+    <div id="tabs">
+        <div id="tab-skills">
+            <div id="equipment">
+                <div class="equipmentShowTooltip">
+                    <div class="equipmentSlot" id="headSlotDiv" data-slot="head" data-equipment="titanium_helmet"><img id="headSlot" src="https://flatmmo.com/images/items/titanium_helmet.png"><a id="headSlotName" href="">Titanium Helmet</a></div>
+                    <div class="equipmentSlot" id="bodySlotDiv"  data-slot="body" data-equipment="titanium_body"><img id="bodySlot" src="https://flatmmo.com/images/items/titanium_body.png"><a id="bodySlotName" href="">Titanium Body</a></div>
+                    <div class="equipmentSlot" id="legsSlotDiv"  data-slot="legs" data-equipment="crocodile_legs"><img id="legsSlot" src="https://flatmmo.com/images/items/crocodile_legs.png"><a id="legsSlotName" href="">Titanium Legs</a></div>
+                    <div class="equipmentSlot" id="bootsSlotDiv"  data-slot="boots" data-equipment="titanium_boots"><img id="bootsSlot" src="https://flatmmo.com/images/items/titanium_boots.png"><a id="bootsSlotName" href="">Titanium Boots</a></div>
+                    <div class="equipmentSlot" id="glovesSlotDiv"  data-slot="gloves" data-equipment="titanium_gloves"><img id="glovesSlot" src="https://flatmmo.com/images/items/titanium_gloves.png"><a id="glovesSlotName" href="">Titanium Gloves</a></div>
+                </div>
+                <div><canvas id="character" style="image-rendering: pixelated;width: 500px;" width="128" height="136"></canvas></div>
+                <div class="equipmentShowTooltip">
+                    <div class="equipmentSlot" id="hatSlotDiv"  data-slot="hat" data-equipment="straw_hat" style="justify-content: space-between;"><a id="hatSlotName" href="">Farmer Hat</a><img id="hatSlot" src="https://flatmmo.com/images/items/straw_hat.png"></div>
+                    <div class="equipmentSlot" id="necklaceSlotDiv"  data-slot="necklace" data-equipment="sapphire_necklace" style="justify-content: space-between;"><a id="necklaceSlotName" href="">Sapphire Necklace</a><img id="necklaceSlot" src="https://flatmmo.com/images/items/sapphire_necklace.png"></div>
+                    <div class="equipmentSlot" id="weaponSlotDiv"  data-slot="weapon" data-equipment="titanium_mace" style="justify-content: space-between;"><a id="weaponSlotName" href="">Titanium Mace</a><img id="weaponSlot" src="https://flatmmo.com/images/items/titanium_mace.png"></div>
+                    <div class="equipmentSlot" id="sigilSlotDiv"  data-slot="sigil" data-equipment="tree_sigil" style="justify-content: space-between;"><a id="sigilSlotName" href="">Tree Sigil</a><img id="sigilSlot" src="https://flatmmo.com/images/items/tree_sigil.png"></div>
+                </div>
+                <div class="equipmentTooltip" style="padding:20px">
+                    <h2><span id="equipmentTooltipName">ITEM NAME</span> <img id="equipmentTooltipImage" src="placeholder.png" width="50"></h2>
+                    <span id="equipmentTooltipDiv_damage"><span id="equipmentTooltip_damage">0</span> Damage</span>
+                    <span id="equipmentTooltipDiv_archery_damage"><span id="equipmentTooltip_archery_damage">0</span> Archery Damage</span>
+                    <span id="equipmentTooltipDiv_magic_damage"><span id="equipmentTooltip_magic_damage">0</span> Magic Damage</span>
+                    <span id="equipmentTooltipDiv_accuracy"><span id="equipmentTooltip_accuracy">0</span> Acurracy</span>
+                    <span id="equipmentTooltipDiv_defence"><span id="equipmentTooltip_defence">0</span> Defence</span>
+                    <span id="equipmentTooltipDiv_magic_defence"><span id="equipmentTooltip_magic_defence">0</span> Magic Defence</span>
+                    <span id="equipmentTooltipDiv_level"><span id="equipmentTooltip_level">0</span> Required Level</span>
+                    <span id="equipmentTooltipDiv_bonus"><span id="equipmentTooltip_bonus"></span></span>
+                    <span id="equipmentTooltipDiv_sell_price" style="display: flex;align-items: center;">Sell Price <span id="equipmentTooltip_sell_price">10</span><img src="https://flatmmo.com/images/items/coins.png" width="25"></span>
+                </div>
+            </div>
+            <div id="stats">
+                <div>
+                    <div class="stats" style="--borderColorOne:red;--borderColorTwo:red;"><picture><img src="https://flatmmo.com/images/ui/hp_med.png"></picture></div>
+                    <div class="statsValue">
+                        <span>HEALTH</span>
+                        <br>
+                        <span id="hp">0</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="stats" style="--borderColorOne:red;--borderColorTwo:red;"><picture><img src="https://flatmmo.com/images/icons/damage.png"></picture></div>
+                    <div class="statsValue">
+                        <span>MELEE DAMAGE</span>
+                        <br>
+                        <span id="damage">0</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="stats" style="--borderColorOne:green;--borderColorTwo:green;"><picture><img src="https://flatmmo.com/images/icons/arrow_damage.png"></picture></div>
+                    <div class="statsValue">
+                        <span>ARCHERY DAMAGE</span>
+                        <br>
+                        <span id="arrow_damage">0</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="stats" style="--borderColorOne:blue;--borderColorTwo:blue;"><picture><img src="https://flatmmo.com/images/icons/magic_damage.png"></picture></div>
+                    <div class="statsValue">
+                        <span>MAGIC DAMAGE</span>
+                        <br>
+                        <span id="magic_damage">0</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="stats" style="--borderColorOne:white;--borderColorTwo:white;"><picture><img src="https://flatmmo.com/images/ui/sleep.png"></picture></div>
+                    <div class="statsValue">
+                        <span>SLEEP</span>
+                        <br>
+                        <span id="max_sleep_value">0</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="stats" style="--borderColorOne:black;--borderColorTwo:black;filter:invert()"><picture><img src="https://flatmmo.com/images/icons/accuracy.png"></picture></div>
+                    <div class="statsValue">
+                        <span>ACCURACY</span>
+                        <br>
+                        <span id="accuracy">0</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="stats" style="--borderColorOne:red;--borderColorTwo:green;"><picture><img src="https://flatmmo.com/images/icons/defence.png"></picture></div>
+                    <div class="statsValue">
+                        <span>DEFENCE</span>
+                        <br>
+                        <span id="defence">0</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="stats" style="--borderColorOne:blue;--borderColorTwo:blue;"><picture><img src="https://flatmmo.com/images/icons/magic_defence.png"></picture></div>
+                    <div class="statsValue">
+                        <span>MAGIC DEFENSE</span>
+                        <br>
+                        <span id="magic_defence">0</span>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div id="skills">
+                <div>
+                    <img src="https://flatmmo.com/images/icons/melee_large.png">
+                    <span>MELEE</span>
+                    <span id="meleeLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/archery_large.png">
+                    <span>ARCHERY</span>
+                    <span id="archeryLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/magic_large.png">
+                    <span>MAGIC</span>
+                    <span id="magicLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/health_large.png">
+                    <span>HEALTH</span>
+                    <span id="healthLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/worship_large.png">
+                    <span>WORSHIP</span>
+                    <span id="worshipLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/mining_large.png">
+                    <span>MINING</span>
+                    <span id="miningLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/forging_large.png">
+                    <span>FORGING</span>
+                    <span id="forgingLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/crafting_large.png">
+                    <span>CRAFTING</span>
+                    <span id="craftingLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/enchantment_large.png">
+                    <span>ENCHANTMENT</span>
+                    <span id="enchantmentLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/fishing_large.png">
+                    <span>FISHING</span>
+                    <span id="fishingLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/woodcutting_large.png">
+                    <span>WOODCUTTING</span>
+                    <span id="woodcuttingLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/firemake_large.png">
+                    <span>FIREMAKE</span>
+                    <span id="firemakeLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/cooking_large.png">
+                    <span>COOKING</span>
+                    <span id="cookingLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/brewing_large.png">
+                    <span>BREWING</span>
+                    <span id="brewingLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/farming_large.png">
+                    <span>FARMING</span>
+                    <span id="farmingLevel">10</span>
+                </div>
+                <div>
+                    <img src="https://flatmmo.com/images/icons/hunting_large.png">
+                    <span>HUNTING</span>
+                    <span id="huntingLevel">10</span>
+                </div>
+            </div>
+        </div>
+        <div id="tab-achievements"  style="display: none;">
+            <div class="achievements">
+                <div class="achievement">
+                    <div class="progressBorder" id="questsProgress" style="--progress:0%">0%</div>
+                    <div>
+                        <span>QUESTS</span>
+                        <span><img src="https://flatmmo.com/images/ui/quests_med.png" > <span id="questsProgressTotal">0</span></span>
+                    </div>
+                </div>
+                <div class="achievement">
+                    <div class="progressBorder" id="tutorialAchievementProgress" style="--progress:0%">0%</div>
+                    <div>
+                        <span>TUTORIAL</span>
+                        <span><img src="https://flatmmo.com/images/ui/achievements_med.png" > <span id="tutorialAchievementProgressTotal">0</span></span>
+                    </div>
+                </div>
+                <div class="achievement">
+                    <div class="progressBorder" id="easyAchievementProgress" style="--progress:0%">0%</div>
+                    <div>
+                        <span>EASY</span>
+                        <span><img src="https://flatmmo.com/images/ui/achievements_med.png" > <span id="easyAchievementProgressTotal">0</span></span>
+                    </div>
+                </div>
+                <div class="achievement">
+                    <div class="progressBorder" id="mediumAchievementProgress" style="--progress:0%">0%</div>
+                    <div>
+                        <span>MEDIUM</span>
+                        <span><img src="https://flatmmo.com/images/ui/achievements_med.png" > <span id="mediumAchievementProgressTotal">0</span></span>
+                    </div>
+                </div>
+                <div class="achievement">
+                    <div class="progressBorder" id="hardAchievementProgress" style="--progress:0%">0%</div>
+                    <div>
+                        <span>HARD</span>
+                        <span><img src="https://flatmmo.com/images/ui/achievements_med.png" > <span id="hardAchievementProgressTotal">0</span></span>
+                    </div>
+                </div>
+                <div class="achievement">
+                    <div class="progressBorder" id="eliteAchievementProgress" style="--progress:0%">0%</div>
+                    <div>
+                        <span>ELITE</span>
+                        <span><img src="https://flatmmo.com/images/ui/achievements_med.png" > <span id="eliteAchievementProgressTotal">0</span></span>
+                    </div>
+                </div>
+                <div class="achievement">
+                    <div class="progressBorder" id="championAchievementProgress" style="--progress:0%">0%</div>
+                    <div>
+                        <span>CHAMPION</span>
+                        <span><img src="https://flatmmo.com/images/ui/achievements_med.png" > <span id="championAchievementProgressTotal">0</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tab-minigames" style="display: none;">
+            <div class="minigames">
+                <div class="minigame">
+                    <div><img src="https://flatmmo.com/images/objects/bondfire1_lower.png"></div>
+                    <div id="minigame-bondfire"></div>
+                </div>
+                <div class="minigame">
+                    <div><img src="https://flatmmo.com/images/npcs/deranged_mage_stand1.png"></div>
+                    <div id="minigame-deranged"></div>
+                </div>
+                <div class="minigame">
+                    <div><img src="https://flatmmo.com/images/npcs/silkfang_stand1.png"></div>
+                    <div id="minigame-silkfang"></div>
+                </div>
+                <div class="minigame">
+                    <div><img src="https://flatmmo.com/images/npcs/lochness_monster_stand1.png"></div>
+                    <div id="minigame-lochness"></div>
+                </div>
+                <div class="minigame">
+                    <div><img src="https://flatmmo.com/images/npcs/giant_flufflare_stand1.png"></div>
+                    <div id="minigame-flufflare"></div>
+                </div>
+            </div>
+        </div>
+        <div id="tab-enemies" style="display: none;">
+            <div class="enemies"></div>
+        </div>
+    </div>
+</main>
+    <script src="character.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
