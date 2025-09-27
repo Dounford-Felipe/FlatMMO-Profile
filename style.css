@@ -45,6 +45,25 @@ a {
     color: var(--color5);
 }
 
+.playerSearch {
+    position: absolute;
+    right: 20px;
+    input {
+        background-color: var(--color4);
+        margin-right: 5px;
+        &:focus {
+            outline: solid var(--color3);
+        }
+        &::placeholder {
+            color: white;
+        }
+    }
+    button {
+        background-color: var(--color3);
+        color: white;
+    }
+}
+
 #equipment {
     display: flex;
     justify-content: space-evenly;
