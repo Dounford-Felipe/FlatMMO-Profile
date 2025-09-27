@@ -64,14 +64,14 @@ const achievements = [
 	["level_80"],
 ]
 const slots = ["head", "body", "legs", "boots", "gloves", "hat", "necklace", "weapon", "sigil"];
-const playerStats = ["hp","damage","arrow_damage","magic_damage","max_sleep_value","accuracy","defence","magic_defence"]
+const playerStats = ["hp","damage","arrow_damage","spell_damage","max_sleep_value","accuracy","defence","magic_defence"]
 
 let currentTab = "skills";
 let tooltipPiece = "";
 let questsCompleted = 0;
 let achievementsCompleted = [0, 0, 0, 0, 0, 0];
 
-async function getData() {
+async function getData(newUser) {
 	let user;
 	//flatmmo.com/profile?user=dounford
 	const params = new URLSearchParams(window.location.search)
@@ -84,7 +84,7 @@ async function getData() {
 		pathUser = split.at(-1);
 	}
 
-	user = paramUser || pathUser || "smitty";
+	user = newUser || paramUser || pathUser || "smitty";
 
 	const response = await fetch('https://flatmmo.com/api/player/', {
 		method: 'POST',
@@ -99,6 +99,12 @@ async function getData() {
 	dataText = await response.text();
 
 	data = JSON.parse(dataText)
+
+	//In case the user doesn't exist
+	if(data === null) {
+		getData("smitty");
+		return;
+	}
 
 	parseData("vars")
 	parseData("bank_items")
@@ -335,6 +341,12 @@ function init() {
 	console.log("page loaded")
 }
 
+function changeProfile() {
+	const searchPlayerInput = document.getElementById("searchPlayer");
+	if(searchPlayerInput.value === "") return;
+	window.open(`./?user=${searchPlayerInput.value}`)
+}
+
 document.addEventListener("mousemove", e=> {
 	const equipment = e.target.closest("[data-equipment]");
 	const slot = e.target.closest("[data-equipment]");
@@ -358,11 +370,18 @@ document.addEventListener("mousemove", e=> {
 	}
 })
 
+document.getElementById("searchPlayer").addEventListener("keydown", function(e) {
+	if(e.key === "Enter") {
+		changeProfile()
+	}
+})
+document.getElementById("searchPlayerBtn").addEventListener("click",()=>{
+	changeProfile();
+})
 
 const titleCase = (s) => {
 	return s.replace (/^[-_]*(.)/, (_, c) => c.toUpperCase())
 	.replace (/[-_]+(.)/g, (_, c) => ' ' + c.toUpperCase())
 }
 
-window.onload = getData
-//getData("felipewolf");
+window.onload = () => getData();
