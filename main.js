@@ -265,9 +265,11 @@ function updateMinigames() {
 	//Deranged Mage
 	const derangedBestKill = parseInt(data.vars.deranged_mage_best_killtime) || 0;
 	const derangedTotal = parseInt(data.vars.deranged_mage_killed) || 0;
+	const derangedPet = parseInt(data.vars.deranged_mage_baby_deranged_mage_pet) || false;
 	if(derangedTotal !== 0) {
 		const derangedData = `<span><b>Best Kill Time:</b> ${derangedBestKill} seconds</span>
-			<span><b>Total Kills:</b> ${derangedTotal.toLocaleString("en-US")}</span>`;
+			<span><b>Total Kills:</b> ${derangedTotal.toLocaleString("en-US")}</span>
+			${derangedPet ? `<span><b>Deranged Pet:</b> ${derangedPet}</span>` : ""}`;
 		document.getElementById("minigame-deranged").insertAdjacentHTML("beforeend", derangedData);
 	} else {
 		document.getElementById("minigame-deranged").insertAdjacentHTML("beforeend", "<span>YET TO BE COMPLETED</span>");
@@ -276,9 +278,11 @@ function updateMinigames() {
 	//Silkfang
 	const silkfangBestKill = parseInt(data.vars.silkfang_best_killtime) || 0;
 	const silkfangTotal = parseInt(data.vars.silkfang_killed) || 0;
+	const silkfangPet = parseInt(data.vars.silkfang_silkfang_pet) || false;
 	if(silkfangTotal !== 0) {
 		const silkfangeData = `<span><b>Best Kill Time:</b> ${silkfangBestKill.toLocaleString("en-US")} seconds</span>
-			<span><b>Total Kills:</b> ${silkfangTotal.toLocaleString("en-US")}</span>`;
+			<span><b>Total Kills:</b> ${silkfangTotal.toLocaleString("en-US")}</span>
+			${silkfangPet ? `<span><b>Deranged Pet:</b> ${silkfangPet}</span>` : ""}`;
 		document.getElementById("minigame-silkfang").insertAdjacentHTML("beforeend", silkfangeData);
 	} else {
 		document.getElementById("minigame-silkfang").insertAdjacentHTML("beforeend", "<span>YET TO BE COMPLETED</span>");
@@ -300,9 +304,11 @@ function updateMinigames() {
 	//Giant Flufflare
 	const flufflareBestKill = parseInt(data.vars.giant_flufflare_best_killtime) || 0;
 	const flufflareTotal = parseInt(data.vars.giant_flufflare_killed) || 0;
+	const flufflarePet = parseInt(data.vars.giant_flufflare_flufflare_pet) || false;
 	if(flufflareTotal !== 0) {
 		const flufflareData = `<span><b>Best Kill Time:</b> ${flufflareBestKill} seconds</span>
-			<span><b>Total Kills:</b> ${flufflareTotal.toLocaleString("en-US")}</span>`;
+			<span><b>Total Kills:</b> ${flufflareTotal.toLocaleString("en-US")}</span>
+			${flufflarePet ? `<span><b>Deranged Pet:</b> ${flufflarePet}</span>` : ""}`;
 		document.getElementById("minigame-flufflare").insertAdjacentHTML("beforeend", flufflareData);
 	} else {
 		document.getElementById("minigame-flufflare").insertAdjacentHTML("beforeend", "<span>YET TO BE COMPLETED</span>");
