@@ -289,3 +289,17 @@ a {
         object-fit: contain;
     }
 }
+
+.enemyDropsModal {
+    width: 50%;
+    height: 70%;
+    position: fixed;
+    top: 0;
+    background-color: var(--color3);
+
+    img {
+        width: 20%;
+        height: 20%;
+        object-fit: contain;
+    }
+}

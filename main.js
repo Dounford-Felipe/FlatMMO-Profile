@@ -322,7 +322,7 @@ function updateEnemies() {
 		if(enemy.collection_log === "boss") {
 			enemyName = "☠️" + enemyName.toUpperCase();
 		}
-		const enemyDiv = `<div class="enemy">
+		const enemyDiv = `<div class="enemy" data-enemy="${enemy.name}">
 			<div><span>${enemyName}</span></div>
 			<div><img src="https://flatmmo.com/images/npcs/${enemy.name}_stand1.png"></img></div>
 			<div>
@@ -330,6 +330,19 @@ function updateEnemies() {
 			</div>
 		</div>`
 		enemiesDiv.insertAdjacentHTML("beforeend", enemyDiv)
+	})
+}
+
+function updateEnemyModal(enemy = "chicken") {
+	const enemyIndex = enemiesData.findIndex(enemyData => enemyData.name === enemy)
+	const dropsDiv = document.getElementById("enemyDrops");
+	document.getElementById("enemyModalImage").src = `https://flatmmo.com/images/npcs/${enemy}_stand1.png`;
+	enemiesData[enemyIndex].drops.forEach(drop => {
+		const dropDiv = `<tr>
+			<td><img src="https://flatmmo.com/images/items/${drop.item}.png"></td>
+			<td><span>${data.vars[enemy + "_" + drop.item] || 0}</span></td>
+		</tr>`
+		dropsDiv.insertAdjacentHTML("beforeend", dropDiv);
 	})
 }
 
@@ -344,6 +357,7 @@ function init() {
 	updateAchievementsProgress();
 	updateMinigames();
 	updateEnemies();
+	updateEnemyModal()
 	console.log("page loaded")
 }
 

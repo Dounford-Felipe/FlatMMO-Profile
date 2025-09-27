@@ -36,7 +36,7 @@
         <div id="enemiesBtn" class="tabBtn" onclick="switchTab('enemies')">ENEMIES</div>
     </div>
     <div id="tabs">
-        <div id="tab-skills">
+        <div id="tab-skills" style="display: none;">
             <div id="equipment">
                 <div class="equipmentShowTooltip">
                     <div class="equipmentSlot" id="headSlotDiv" data-slot="head" data-equipment=""><img id="headSlot" src=""><a id="headSlotName" href=""></a></div>
@@ -294,8 +294,19 @@
                 </div>
             </div>
         </div>
-        <div id="tab-enemies" style="display: none;">
+        <div id="tab-enemies">
             <div class="enemies"></div>
+            <div class="enemyDropsModal">
+                <img id="enemyModalImage" src="">
+                <span id="enemyModalKilled"></span>
+                <table>
+                    <thead>
+                        <th>ITEM</th>
+                        <th>LOOTED</th>
+                    </thead>
+                    <tbody id="enemyDrops"></tbody>
+                </table>
+            </div>
         </div>
     </div>
 </main>
