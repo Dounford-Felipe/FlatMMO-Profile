@@ -2336,19 +2336,32 @@ let tooltipPiece = "";
 let questsCompleted = 0;
 let achievementsCompleted = [0, 0, 0, 0, 0, 0];
 
-async function getData(username) {
-	// const response = await fetch('https://flatmmo.com/api/player/', {
-	//     method: 'POST',
-	//     headers: {
-	//         'Content-Type': 'application/json',
-	//         'X-API-Key': 'dounford-the-goat'
-	//     },
-	//     body: JSON.stringify({
-	//         'username': username
-	//     })
-	// });
-	// data = await response.text();
-	const dataText = `{"username":"thebacon","inventory_items":"bait~100~bait~100~bait~100~bait~100~bait~100~bait~44~raw_sardine~100~algae~1~raw_sardine~100~raw_sardine~100~titanium_axe~1~raw_sardine~100~raw_sardine~100~raw_sardine~100~raw_sardine~41","bank_items":"coins~28343~1~stardust~24797~1~arrow_shafts~15157~1~willow_logs~9293~1~bronze_arrow_heads~5757~1~bronze_arrows~3637~1~raw_sardine~3276~1~fire_orb~2805~1~feathers~2655~1~iron_arrows~1636~1~copper~1249~1~gold_arrows~1000~1~iron_arrow_heads~995~1~seashroom~814~1~string~768~1~coal~509~1~logs~478~1~moldshroom~452~1~air_orb~443~1~cooked_eel~400~1~cooked_tuna~389~1~cooked_anchovy~379~1~fishing_net~354~1~wheat~332~1~cooked_shrimp~320~1~damage_orb_1~313~1~cooked_piranha~260~1~vial~244~1~green_mushroom~241~1~woodchips~178~1~raw_lobster~177~1~blue_mushroom~165~1~cooked_lobster~165~1~sand~155~1~seaweed~113~1~blue_mage_silk~105~1~cooked_chicken~102~1~bronze_bar~101~1~wheat_seeds~97~1~water_orb~95~1~burnt_tuna~92~1~fireshroom~90~1~bonemeal~90~1~red_mage_silk~76~1~blue_mushroom_seeds~75~1~silver~67~1~water_bucket~62~1~bear_fur~62~1~rockshroom~56~1~cooked_crab_meat~55~1~melee_potion~54~1~red_mushroom_seeds~45~1~green_mushroom_seeds~42~1~thieves_hood~39~1~iron~39~1~green_leaf~37~1~unpowered_orb~35~1~tiger_fur~32~1~gold~32~1~damage_orb_2~30~1~haunted_logs~30~1~algae~30~1~dotted_green_leaf~27~1~red_mushroom~27~1~sugarcane~18~1~bonecrusher~18~1~cooked_rat_meat~17~1~bucket~17~1~cake~15~1~maple_logs~14~1~archery_potion~14~1~burnt_crab_meat~13~1~barbed_wire~13~1~bow~12~1~hell_shovel~11~1~silver_bar~10~1~oak_staff~10~1~cooked_three_eyed_fish~9~1~willow_staff~8~1~seashroom_seeds~7~1~matches~7~1~magic_potion~6~1~bronze_sword~6~1~snakeskin_body~6~1~gold_bar~6~1~shovel~5~1~mangrove_logs~5~1~burnt_piranha~5~1~rotten_logs~5~1~red_mage_boots~4~1~oak_logs~3~1~bronze_boots~3~1~large_vial~3~1~gold_knife~3~1~iron_bar~3~1~bronze_body~3~1~cooked_sardine~3~1~red_mage_gloves~3~1~woodcutting_potion~3~1~milk_bucket~2~1~stone_boots~2~1~bronze_gloves~2~1~hatching_chicken_sigil~2~1~maple_bow~2~1~silver_pickaxe~2~1~bronze_helmet~2~1~iron_knife~2~1~straw_hat~2~1~iron_body~2~1~red_mage_hat~2~1~moldshroom_seeds~2~1~pyro_matches~2~1~mad_bunny_sigil~1~1~reindeer_sigil~1~1~bronze_knife~1~1~snakeskin_mask~1~1~snakeskin_gloves~1~1~snakeskin_boots~1~1~iron_mace~1~1~bear_fur_boots~1~1~bear_fur_legs~1~1~bear_fur_body~1~1~bear_fur_gloves~1~1~silver_mace~1~1~willow_bow~1~1~oak_bow~1~1~staff~1~1~snakeskin_legs~1~1~bear_fur_mask~1~1~tiger_fur_boots~1~1~tiger_fur_gloves~1~1~tiger_fur_legs~1~1~tiger_fur_body~1~1~silver_axe~1~1~silver_boots~1~1~silver_helmet~1~1~silver_body~1~1~silver_legs~1~1~silver_gloves~1~1~gold_mace~1~1~mummy_sigil~1~1~firecook_potion~1~1~tnt~1~1~crocodile_gloves~1~1~crocodile_boots~1~1~gold_boots~1~1~crocodile_body~1~1~raw_shark~1~1~bronze_scimitar~1~1~crocodile_mask~1~1~crocodile_legs~1~1~iron_sword~1~1~fishing_cage~1~1~gold_axe~1~1~pyro_gloves~1~1~silver_sword~1~1~thick_fishing_net~1~1~chefs_hat~1~1~blue_mage_top~1~1~lime_leaf~1~1~gold_leaf~1~1~harpoon~1~1~gold_scimitar~1~1~silver_scimitar~1~1~tiger_fur_mask~1~1~grass_orb~1~1~silkfang_mask~1~1~silkfang_legs~1~1~silkfang_gloves~1~1~silkfang_boots~1~1~silkfang_body~1~1~promethium_knife~1~1~mangrove_bow~1~1~promethium_mace~1~1~iron_legs~1~1~iron_helmet~1~1~iron_gloves~1~1~iron_boots~1~1~reflect_emblem~1~1~scimitar_handle~1~1~red_mage_top~1~1~deranged_mask~1~1~red_mage_skirt~1~1~promethium_axe~1~1~titanium_knife~1~1~gold_pickaxe~1~1","vars":"ach_examine_algae~1~ach_grass_orb_tiger~1~demon_killed~28~health_xp~851428~hp~70~ach_mine_iron~1~lava_rocky_killed~15~accuracy~2~global_xp~12404072~everbrook_guard_killed~79~snake_killed~109~playtime~41041~ach_bury_bones~1~cow_killed~19~hunting_monster_goal~75~shrimp_sandwich~-1~looted_pirates_chest~0~legs~gold_legs~sleep_value~76~ach_boss_kill~1~melee_xp~2447504~crafting_xp~364645~great_thief_killed~35~plunder_the_pirate_ship~-1~ach_hunting_mask_kill~1~energy~1000~magic_xp~54456~ach_fast_fire~1~vial_of_gunpowder_ocean~0~ach_vandalized_cemetery_bones~1~brewing_xp~2230~seagull_killed~5~deranged_mage_best_killtime~35~bondfire_points~0~ghost_killed~272~farming_patch_3_planted~none~farming_patch_2_timer~0~sigil~faradox_sigil~ach_examine_rotten_logs~1~lochness_points~0~spell_damage~-13~thief_killed~5~ach_mine_coal~1~bondfire_points_total~216~ach_lochness_mvp~1~feeding_the_dead_unlocked~1~farmer_killed~226~ach_run~1~damage~7~archery_xp~903752~trible_fishermen_killed~2~defence~23~alt_trading_login_warning~1~farming_patch_1_planted~none~max_hp~70~spider_killed~32~witch_tutorial~1~enchantment_xp~3763~melee_potion_timer~0~hunting_xp~23589~farming_patch_1_timer~0~ach_camel_back~1~charcoal_produced~0~global_level~743~boots~stone_boots~heating_homes~-1~lochness_fishing_xp~1610~unlocked_teleport_dock_haven~1~let_there_be_light~-1~deranged_mage_killed~57~hunting_points~244~ach_plunder_the_shark~1~archer_goblin_killed~4~giant_spider_killed~5475~ach_thieves_guild_entry2~1~beach_fixed~1~lochness_completed~2~ach_firebond_10_streak~1~beetle_killed~126~ach_hell~1~unlocked_teleport_desert~1~ach_right_click_monster~1~ach_make_bronze_arrows~1~thieves_hideout_unlocked~1~worship_points~15~ach_high_five_tiger~1~woodcutting_xp~1522370~first_login~1~lochness_points_total~2~max_sleep_value~126~fishing_potion_timer~0~ach_4_seaweed~1~ach_examine_mold_rock~1~hunting_points_total~544~chicken_slaughter_slain~6~deranged_mage_key_used~1~rat_killed~18~deep_jungle_map_read~1~hunting_monster~hell_goblin~hunting_cooldown~1~ach_sand_bait~1~attempt_thief_hideout_walk~1~ach_beetle_kill_silver_mace~1~woodcutting_potion_timer~0~chicken_killed~84~arrows~none~ach_gather_milk~1~ach_slay_giant_rat~1~examined_dead_marin~2~crab_killed~2373~ach_3_fishing_cages~1~body~gold_body~farming_patch_2_planted~none~ach_bury_10_giant_bones_bank~1~unlocked_teleport_everbrook~1~mining_xp~230690~pirate_ship_access~1~ach_hell_shovel_sand_dig~1~pirate_killed~18~bully_thief_killed~93~current_premium~none~hat~straw_hat~hunting_points_post_update_flag~1~fishing_xp~1519693~mystic_vale_sd_chest_opened~1~lost_cat~-1~ach_drink_potion~1~hell_goblin_killed~196~feeding_the_dead_toggled~1~deranged_mage_key_chest_opened~1~poisoned~0~magic_orb~none~ach_chop_bamboo~1~tab_off~0~fishing_cage_3_timer~3061~hunting_expeditions_completed~16~ach_hell_shovel_dig~1~ach_taste_the_scimitar~1~woodchips_timer~0~arrow_damage~6~ach_level_10~1~swim~1~farming_xp~41315~guard_mage_killed~166~weapon_type~SLASH~flufflare_killed~43~ach_chicken_wheat_seeds~1~head~gold_helmet~weapon~fishing_rod~fishing_cage_collect~126~bear_killed~97~ach_finding_the_hunter~1~gloves~gold_gloves~unlocked_teleport_omboko~1~master_farmer_killed~85~red_mage_killed~522~firemake_xp~344910~rocky_killed~66~ach_double_cakes~1~smashed_sandstone~1~fishing_cage_1_timer~3306~primary_magic_orb~none~tiger_killed~36~thieves_hideout_2~-1~thieves_hideout_3~-1~magic_potion_timer~0~thieves_hideout_1~-1~magic_defence~0~ach_right_click_player~1~cooking_xp~3955410~sewer_doll~-1~farming_patch_3_timer~0~necklace~sapphire_necklace~archer_thief_killed~55~ach_right_click_item~1~forging_xp~90986~ach_bank_spider~1~unlocked_teleport_mystic_vale~1~ach_expensive_water~1~fishing_cage_2_timer~2883~worship_xp~47331~hunting_monster_at~0~chicken_slaughter~-1~ach_chop_craft_fill_bucket~1~ach_hit_40_hell~1~ach_door~1~goblin_killed~126","playtime":41041,"global_level":743,"global_xp":12404072,"health_level":61,"health_xp":851428,"melee_level":77,"melee_xp":2447504,"archery_level":62,"archery_xp":903752,"magic_level":31,"magic_xp":54456,"worship_level":30,"worship_xp":47331,"mining_level":45,"mining_xp":230690,"forging_level":36,"forging_xp":90986,"crafting_level":51,"crafting_xp":364645,"fishing_level":69,"fishing_xp":1519693,"woodcutting_level":70,"woodcutting_xp":1522370,"firemake_level":50,"firemake_xp":344910,"cooking_level":84,"cooking_xp":3955410,"brewing_level":11,"brewing_xp":2230,"farming_level":29,"farming_xp":41315,"hunting_level":24,"hunting_xp":23589,"enchantment_level":13,"enchantment_xp":3763}`
+async function getData() {
+	let user;
+	//flatmmo.com/profile?user=dounford
+	const params = new URLSearchParams(window.location.search)
+	const paramUser = params.get("user")
+	
+	//flatmmo.com/profile/dounford
+	const split = document.location.pathname.split("/");
+	let pathUser;
+	if(split.length === 3) {
+		pathUser = split.at(-1);
+	}
+
+	user = paramUser || pathUser || "smitty";
+
+	const response = await fetch('https://flatmmo.com/api/player/', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'X-API-Key': 'dounford-the-goat'
+		},
+		body: JSON.stringify({
+			'username': user
+		})
+	});
+	dataText = await response.text();
 
 	data = JSON.parse(dataText)
 
@@ -2357,18 +2370,19 @@ async function getData(username) {
 	parseData("inventory_items")
 	data.vars.hair = "none";
 	
-	// const monstersResponse = await fetch('https://flatmmo.com/data/monsters.json', {
-	//     method: 'GET',
-	//     headers: {
-	//         'Content-Type': 'application/json',
-	//     },
-	// });
-	// enemiesData = await monstersResponse.json();
+	const monstersResponse = await fetch('https://flatmmo.com/data/monsters.json', {
+	    method: 'GET',
+	    headers: {
+	        'Content-Type': 'application/json',
+	    },
+	});
+	enemiesData = await monstersResponse.json();
 
 	init();
 }
 
 function parseData(key) {
+	if(!data[key]) return;
 	const split = data[key].split("~");
 	data[key] = {};
 	for(let i = 0; i < split.length; i++) {
