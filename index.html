@@ -9,20 +9,24 @@
 </head>
 <body>
 <main>
-    <div id="header" style="display: flex;align-items: center;">
+    <div id="header" style="display: flex;align-items: center;position: relative;">
         <div style="margin-right: 20px;">
             <img src="https://flatmmo.com/images/items/diamond.png" id="profileIcon" width="78">
         </div>
         <div style="font-size: 3rem;margin-right: 20px;">
-            <a id="username" href="#">felipewolf</a>
+            <a id="username" href="#"></a>
         </div>
         <div>
             <img src="https://flatmmo.com/images/ui/skills_med.png" width="16">
-            <span id="level">1,000</span>
+            <span id="level">0</span>
             <img src="https://flatmmo.com/images/ui/quests_med.png" width="16">
-            <span id="quests">1/20</span>
+            <span id="quests">0/0</span>
             <img src="https://flatmmo.com/images/ui/achievements_med.png" width="16">
-            <span id="achievements">1/80</span>
+            <span id="achievements">0/0</span>
+        </div>
+        <div class="playerSearch">
+            <input type="text" id="searchPlayer" placeholder="Player Name">
+            <button id="searchPlayerBtn">Search</button>
         </div>
     </div>
     <div class="tabBtns">
@@ -35,18 +39,18 @@
         <div id="tab-skills">
             <div id="equipment">
                 <div class="equipmentShowTooltip">
-                    <div class="equipmentSlot" id="headSlotDiv" data-slot="head" data-equipment="titanium_helmet"><img id="headSlot" src="https://flatmmo.com/images/items/titanium_helmet.png"><a id="headSlotName" href="">Titanium Helmet</a></div>
-                    <div class="equipmentSlot" id="bodySlotDiv"  data-slot="body" data-equipment="titanium_body"><img id="bodySlot" src="https://flatmmo.com/images/items/titanium_body.png"><a id="bodySlotName" href="">Titanium Body</a></div>
-                    <div class="equipmentSlot" id="legsSlotDiv"  data-slot="legs" data-equipment="crocodile_legs"><img id="legsSlot" src="https://flatmmo.com/images/items/crocodile_legs.png"><a id="legsSlotName" href="">Titanium Legs</a></div>
-                    <div class="equipmentSlot" id="bootsSlotDiv"  data-slot="boots" data-equipment="titanium_boots"><img id="bootsSlot" src="https://flatmmo.com/images/items/titanium_boots.png"><a id="bootsSlotName" href="">Titanium Boots</a></div>
-                    <div class="equipmentSlot" id="glovesSlotDiv"  data-slot="gloves" data-equipment="titanium_gloves"><img id="glovesSlot" src="https://flatmmo.com/images/items/titanium_gloves.png"><a id="glovesSlotName" href="">Titanium Gloves</a></div>
+                    <div class="equipmentSlot" id="headSlotDiv" data-slot="head" data-equipment=""><img id="headSlot" src=""><a id="headSlotName" href=""></a></div>
+                    <div class="equipmentSlot" id="bodySlotDiv"  data-slot="body" data-equipment=""><img id="bodySlot" src=""><a id="bodySlotName" href=""></a></div>
+                    <div class="equipmentSlot" id="legsSlotDiv"  data-slot="legs" data-equipment=""><img id="legsSlot" src=""><a id="legsSlotName" href=""></a></div>
+                    <div class="equipmentSlot" id="bootsSlotDiv"  data-slot="boots" data-equipment=""><img id="bootsSlot" src=""><a id="bootsSlotName" href=""></a></div>
+                    <div class="equipmentSlot" id="glovesSlotDiv"  data-slot="gloves" data-equipment=""><img id="glovesSlot" src=""><a id="glovesSlotName" href=""></a></div>
                 </div>
                 <div><canvas id="character" style="image-rendering: pixelated;width: 500px;" width="128" height="136"></canvas></div>
                 <div class="equipmentShowTooltip">
-                    <div class="equipmentSlot" id="hatSlotDiv"  data-slot="hat" data-equipment="straw_hat" style="justify-content: space-between;"><a id="hatSlotName" href="">Farmer Hat</a><img id="hatSlot" src="https://flatmmo.com/images/items/straw_hat.png"></div>
-                    <div class="equipmentSlot" id="necklaceSlotDiv"  data-slot="necklace" data-equipment="sapphire_necklace" style="justify-content: space-between;"><a id="necklaceSlotName" href="">Sapphire Necklace</a><img id="necklaceSlot" src="https://flatmmo.com/images/items/sapphire_necklace.png"></div>
-                    <div class="equipmentSlot" id="weaponSlotDiv"  data-slot="weapon" data-equipment="titanium_mace" style="justify-content: space-between;"><a id="weaponSlotName" href="">Titanium Mace</a><img id="weaponSlot" src="https://flatmmo.com/images/items/titanium_mace.png"></div>
-                    <div class="equipmentSlot" id="sigilSlotDiv"  data-slot="sigil" data-equipment="tree_sigil" style="justify-content: space-between;"><a id="sigilSlotName" href="">Tree Sigil</a><img id="sigilSlot" src="https://flatmmo.com/images/items/tree_sigil.png"></div>
+                    <div class="equipmentSlot" id="hatSlotDiv"  data-slot="hat" data-equipment="" style="justify-content: space-between;"><a id="hatSlotName" href=""></a><img id="hatSlot" src=""></div>
+                    <div class="equipmentSlot" id="necklaceSlotDiv"  data-slot="necklace" data-equipment="" style="justify-content: space-between;"><a id="necklaceSlotName" href=""></a><img id="necklaceSlot" src=""></div>
+                    <div class="equipmentSlot" id="weaponSlotDiv"  data-slot="weapon" data-equipment="" style="justify-content: space-between;"><a id="weaponSlotName" href=""></a><img id="weaponSlot" src=""></div>
+                    <div class="equipmentSlot" id="sigilSlotDiv"  data-slot="sigil" data-equipment="" style="justify-content: space-between;"><a id="sigilSlotName" href=""></a><img id="sigilSlot" src=""></div>
                 </div>
                 <div class="equipmentTooltip" style="padding:20px">
                     <h2><span id="equipmentTooltipName">ITEM NAME</span> <img id="equipmentTooltipImage" src="" width="50"></h2>
@@ -91,7 +95,7 @@
                     <div class="statsValue">
                         <span>MAGIC DAMAGE</span>
                         <br>
-                        <span id="magic_damage">0</span>
+                        <span id="spell_damage">0</span>
                     </div>
                 </div>
                 <div>
@@ -292,6 +296,22 @@
         </div>
         <div id="tab-enemies" style="display: none;">
             <div class="enemies"></div>
+            <dialog class="enemyDropsModal">
+                <div id="enemyModalClose">×</div>
+                <a id="enemyModalName" target="_blank"></a>
+                <img id="enemyModalImage" src="">
+                <div>KILLS: <span id="enemyModalKilled"></span></div>
+                <div>
+
+                    <table>
+                        <thead>
+                            <th>ITEM</th>
+                            <th>LOOTED</th>
+                        </thead>
+                        <tbody id="enemyDrops"></tbody>
+                    </table>
+                </div>
+            </dialog>
         </div>
     </div>
 </main>
