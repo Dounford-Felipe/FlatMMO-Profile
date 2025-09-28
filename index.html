@@ -296,17 +296,22 @@
         </div>
         <div id="tab-enemies">
             <div class="enemies"></div>
-            <div class="enemyDropsModal">
+            <dialog class="enemyDropsModal">
+                <div id="enemyModalClose">×</div>
+                <a id="enemyModalName" target="_blank"></a>
                 <img id="enemyModalImage" src="">
-                <span id="enemyModalKilled"></span>
-                <table>
-                    <thead>
-                        <th>ITEM</th>
-                        <th>LOOTED</th>
-                    </thead>
-                    <tbody id="enemyDrops"></tbody>
-                </table>
-            </div>
+                <div>KILLS: <span id="enemyModalKilled"></span></div>
+                <div>
+
+                    <table>
+                        <thead>
+                            <th>ITEM</th>
+                            <th>LOOTED</th>
+                        </thead>
+                        <tbody id="enemyDrops"></tbody>
+                    </table>
+                </div>
+            </dialog>
         </div>
     </div>
 </main>

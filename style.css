@@ -290,16 +290,68 @@ a {
     }
 }
 
-.enemyDropsModal {
-    width: 50%;
-    height: 70%;
-    position: fixed;
-    top: 0;
-    background-color: var(--color3);
+dialog[open] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 80%;
+    border: solid 2px var(--color5);
+    border-radius: 5%;
+    background-color: var(--color2);
+    color: white;
+    text-align: center;
+    overflow: hidden;
 
-    img {
-        width: 20%;
-        height: 20%;
+    >a {
+        font-size: 2rem;
+    }
+    
+    >img {
+        width: 100px;
+        height: 100px;
         object-fit: contain;
     }
+
+    table {
+        border-spacing: 0;
+    }
+
+    div:last-child {
+        overflow: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--color3) var(--color4);
+    }
+
+    td, th {
+        padding: 0 20px;
+    }
+
+    td a {
+        display: block;
+    }
+    
+    td img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+    }
+
+    tr:nth-child(even), th {
+        background-color: var(--color3);
+    }
+    tr:nth-child(odd) {
+        background-color: var(--color4);
+    }
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#enemyModalClose {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.3rem;
 }

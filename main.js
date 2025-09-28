@@ -333,13 +333,18 @@ function updateEnemies() {
 	})
 }
 
-function updateEnemyModal(enemy = "chicken") {
+function updateEnemyModal(enemy = "deranged_mage") {
 	const enemyIndex = enemiesData.findIndex(enemyData => enemyData.name === enemy)
 	const dropsDiv = document.getElementById("enemyDrops");
+	const enemyName = document.getElementById("enemyModalName");
+	enemyName.innerText = titleCase(enemy);
+	enemyName.setAttribute("href", `https://flatmmo.wiki/index.php/${titleCase(enemy).replaceAll(" ", "_")}`);
 	document.getElementById("enemyModalImage").src = `https://flatmmo.com/images/npcs/${enemy}_stand1.png`;
+	document.getElementById("enemyModalKilled").innerText = data.vars[enemy + "_killed"] || 0;
+	dropsDiv.innerHTML = "";
 	enemiesData[enemyIndex].drops.forEach(drop => {
 		const dropDiv = `<tr>
-			<td><img src="https://flatmmo.com/images/items/${drop.item}.png"></td>
+			<td><img src="https://flatmmo.com/images/items/${drop.item}.png"><a href="https://flatmmo.wiki/index.php/${titleCase(drop.item).replaceAll(" ", "_")}" target="_blank">${titleCase(drop.item)}</a></td>
 			<td><span>${data.vars[enemy + "_" + drop.item] || 0}</span></td>
 		</tr>`
 		dropsDiv.insertAdjacentHTML("beforeend", dropDiv);
@@ -357,7 +362,6 @@ function init() {
 	updateAchievementsProgress();
 	updateMinigames();
 	updateEnemies();
-	updateEnemyModal()
 	console.log("page loaded")
 }
 
@@ -395,9 +399,36 @@ document.getElementById("searchPlayer").addEventListener("keydown", function(e) 
 		changeProfile()
 	}
 })
+
 document.getElementById("searchPlayerBtn").addEventListener("click",()=>{
 	changeProfile();
 })
+
+const modal = document.querySelector(".enemyDropsModal");
+
+document.getElementById("enemyModalClose").addEventListener("click",()=>{
+	document.querySelector(".enemyDropsModal").close();
+})
+
+document.addEventListener("click", function(e) {
+	const enemyData = e.target.closest("[data-enemy]");
+	if (enemyData) {
+		const enemy = enemyData.dataset.enemy;
+		updateEnemyModal(enemy);
+		modal.showModal();
+	}
+})
+
+//When safari starts to support closedby we can change to that
+modal.addEventListener('click', event => {
+	let rect = event.target.getBoundingClientRect();
+	if (rect.left > event.clientX ||
+	rect.right < event.clientX ||
+	rect.top > event.clientY ||
+	rect.bottom < event.clientY) {
+		modal.close();
+	}
+});
 
 const titleCase = (s) => {
 	return s.replace (/^[-_]*(.)/, (_, c) => c.toUpperCase())
