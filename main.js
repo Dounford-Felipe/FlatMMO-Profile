@@ -107,8 +107,8 @@ async function getData(newUser) {
 	}
 
 	parseData("vars")
-	parseData("bank_items")
-	parseData("inventory_items")
+	data.bank_items = null;
+	data.inventory_items = null;
 	data.vars.hair = "none";
 	
 	const monstersResponse = await fetch('https://flatmmo.com/data/monsters.json', {
