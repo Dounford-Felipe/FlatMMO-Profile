@@ -102,7 +102,7 @@ async function getData(newUser) {
 
 	//In case the user doesn't exist
 	if(data === null) {
-		getData("smitty");
+		alert('Player not found or player has their public profile set to private.')
 		return;
 	}
 
