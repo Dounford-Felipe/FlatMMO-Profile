@@ -261,6 +261,15 @@ function updateMinigames() {
 	} else {
 		document.getElementById("minigame-bondfire").insertAdjacentHTML("beforeend", "<span>YET TO BE COMPLETED</span>");
 	}
+
+	//Bondfire
+	const evilTreePointsTotal = parseInt(data.vars.evil_tree_points_total) || 0;
+	if(evilTreePointsTotal !== 0) {
+		const evilTreeData = `<span>${evilTreePointsTotal.toLocaleString("en-US")} <b>Total Evil Tree Points</b></span>`;
+		document.getElementById("minigame-evilTree").insertAdjacentHTML("beforeend", evilTreeData);
+	} else {
+		document.getElementById("minigame-evilTree").insertAdjacentHTML("beforeend", "<span>YET TO BE COMPLETED</span>");
+	}
 	
 	//Deranged Mage
 	const derangedBestKill = parseInt(data.vars.deranged_mage_best_killtime) || 0;
