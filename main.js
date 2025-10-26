@@ -184,7 +184,7 @@ const achievements = {
     ]
 }
 
-const slots = ["head", "body", "legs", "boots", "gloves", "hat", "necklace", "weapon", "sigil"];
+const slots = ["head", "body", "legs", "boots", "gloves", "hat", "necklace", "weapon", "sigil", "pet"];
 const playerStats = ["hp","damage","arrow_damage","spell_damage","max_sleep_value","accuracy","defence","magic_defence"]
 
 let currentTab = "skills";
