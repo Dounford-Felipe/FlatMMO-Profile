@@ -2,55 +2,187 @@ let data;
 let enemiesData = [];
 
 const equipmentData = {
-	titanium_helmet: {
-		name: "Titanium Helmet",
-		defence: 7,
-		level: 65
-	},
-	titanium_body: {
-		name: "Titanium Body",
-		defence: 7,
-		level: 65
-	},
-	titanium_legs: {
-		name: "Titanium Legs",
-		defence: 7,
-		level: 65
-	},
-	crocodile_legs: {
-		name: "Crocodile Legs",
-		magic_defence: 4,
-		archery_damage: 4,
-		level: 40
-	},
-	titanium_gloves: {
-		name: "Titanium Gloves",
-		defence: 7,
-		level: 65
-	},
-	titanium_boots: {
-		name: "Titanium Boots",
-		defence: 7,
-		level: 65
-	},
-	straw_hat: {
-		name: "Straw Hat",
-		bonus: "+10 farming levels on harvesting"
-	},
-	sapphire_necklace: {
-		name: "Sapphire Necklace",
-		accuracy: 2
-	},
-	titanium_mace: {
-		name: "Titanium Mace",
-		damage: 10,
-		accuracy: 8,
-		level: 70
-	},
-	tree_sigil: {
-		name: "Tree Sigil"
-	}
-}
+    "sapphire_necklace": {
+        "name": "Sapphire Necklace",
+        "accuracy": 2
+    },
+    "emerald_necklace": {
+        "name": "Emerald Necklace",
+        "accuracy": 4
+    },
+    "ruby_necklace": {
+        "name": "Ruby Necklace",
+        "accuracy": 6
+    },
+    "diamond_necklace": {
+        "name": "Diamond Necklace",
+        "accuracy": 8
+    },
+
+    "bronze_helmet": {
+        "name": "Bronze Helmet",
+        "defence": 7,
+        "level": 1
+    },
+    "bronze_body": {
+        "name": "Bronze Body",
+        "defence": 7,
+        "level": 1
+    },
+    "bronze_legs": {
+        "name": "Bronze Legs",
+        "defence": 4,
+        "level": 1
+    },
+    "bronze_gloves": {
+        "name": "Bronze Gloves",
+        "defence": 7,
+        "level": 1
+    },
+    "bronze_boots": {
+        "name": "Bronze Boots",
+        "defence": 7,
+        "level": 1
+    },
+    "iron_helmet": {
+        "name": "Iron Helmet",
+        "defence": 7,
+        "level": 10
+    },
+    "iron_body": {
+        "name": "Iron Body",
+        "defence": 7,
+        "level": 10
+    },
+    "iron_legs": {
+        "name": "Iron Legs",
+        "defence": 4,
+        "level": 10
+    },
+    "iron_gloves": {
+        "name": "Iron Gloves",
+        "defence": 7,
+        "level": 10
+    },
+    "iron_boots": {
+        "name": "Iron Boots",
+        "defence": 7,
+        "level": 65
+    },
+    "silver_helmet": {
+        "name": "Silver Helmet",
+        "defence": 7,
+        "level": 65
+    },
+    "silver_body": {
+        "name": "Silver Body",
+        "defence": 7,
+        "level": 65
+    },
+    "silver_legs": {
+        "name": "Silver Legs",
+        "defence": 4,
+        "level": 65
+    },
+    "silver_gloves": {
+        "name": "Silver Gloves",
+        "defence": 7,
+        "level": 65
+    },
+    "silver_boots": {
+        "name": "Silver Boots",
+        "defence": 7,
+        "level": 65
+    },
+    "gold_helmet": {
+        "name": "Gold Helmet",
+        "defence": 7,
+        "level": 65
+    },
+    "gold_body": {
+        "name": "Gold Body",
+        "defence": 7,
+        "level": 65
+    },
+    "gold_legs": {
+        "name": "Gold Legs",
+        "defence": 4,
+        "level": 65
+    },
+    "gold_gloves": {
+        "name": "Gold Gloves",
+        "defence": 7,
+        "level": 65
+    },
+    "gold_boots": {
+        "name": "Gold Boots",
+        "defence": 7,
+        "level": 65
+    },
+    "promethium_helmet": {
+        "name": "Promethium Helmet",
+        "defence": 7,
+        "level": 65
+    },
+    "promethium_body": {
+        "name": "Promethium Body",
+        "defence": 7,
+        "level": 65
+    },
+    "promethium_legs": {
+        "name": "Promethium Legs",
+        "defence": 4,
+        "level": 65
+    },
+    "promethium_gloves": {
+        "name": "Promethium Gloves",
+        "defence": 7,
+        "level": 65
+    },
+    "promethium_boots": {
+        "name": "Promethium Boots",
+        "defence": 7,
+        "level": 65
+    },
+    "titanium_helmet": {
+        "name": "Titanium Helmet",
+        "defence": 7,
+        "level": 65
+    },
+    "titanium_body": {
+        "name": "Titanium Body",
+        "defence": 7,
+        "level": 65
+    },
+    "titanium_legs": {
+        "name": "Titanium Legs",
+        "defence": 7,
+        "level": 65
+    },
+    "titanium_gloves": {
+        "name": "Titanium Gloves",
+        "defence": 7,
+        "level": 65
+    },
+    "titanium_boots": {
+        "name": "Titanium Boots",
+        "defence": 7,
+        "level": 65
+    },
+    "straw_hat": {
+        "name": "Straw Hat",
+        "bonus": "+10 farming levels on harvesting"
+    },
+    "titanium_mace": {
+        "name": "Titanium Mace",
+        "damage": 10,
+        "accuracy": 8,
+        "level": 70
+    },
+    "tree_sigil": {
+        "name": "Tree Sigil"
+    }
+};
 
 const tooltipStats = ["damage","archery_damage","magic_damage","accuracy","defence","magic_defence","level","sell_price", "bonus"]
 const quests = [
