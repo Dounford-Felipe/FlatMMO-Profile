@@ -53,9 +53,137 @@ const equipmentData = {
 }
 
 const tooltipStats = ["damage","archery_damage","magic_damage","accuracy","defence","magic_defence","level","sell_price", "bonus"]
-const quests = ["lost_cat","heating_homes","chicken_slaughter","shrimp_sandwich","sewer_doll","thieves_hideout_1","thieves_hideout_2","thieves_hideout_3","let_there_be_light","the_3_gemstones","plunder_the_pirate_ship"];
+const quests = [
+    "heating_homes",
+    "lost_cat",
+    "chicken_slaughter",
+    "shrimp_sandwich",
+    "sewer_doll",
+    "thieves_hideout_1",
+    "thieves_hideout_2",
+    "thieves_hideout_3",
+    "let_there_be_light",
+    "let_there_be_light_2",
+    "the_3_gemstones",
+    "plunder_the_pirate_ship",
+    "desert_temple"
+];
 
-const achievements = [
+const achievements = {
+    "CHAMPION": [
+        "level_80"
+    ],
+    "ELITE": [
+        "grow_a_cactus",
+        "level_60",
+        "100_deranged_mage_hungry_streak",
+        "woodenstaff_giant_flufflare",
+        "heating_the_desert",
+        "ancient_pickaxe_meteor",
+        "spirit_lover",
+        "artifact_donations_15",
+        "10000_kills",
+        "silkfang_solo_foodless",
+        "flawless_quick_deranged_mage",
+        "hunting_mask_kill",
+        "lochness_solo"
+    ],
+    "HARD": [
+        "hunter_guide_storm",
+        "no_reflect_required",
+        "giant_flufflare_rain",
+        "weaponless_giant_flufflare",
+        "500_titanium_damage_orbs",
+        "the_lochness_mvp",
+        "feeding_the_birds",
+        "level_40",
+        "100_deranged_mage_streak",
+        "tit_pickaxe_charcoal_wall",
+        "5_charcoal_mined",
+        "plunder_the_shark",
+        "shining_titanium_arrow",
+        "poison_cactus",
+        "large_bird_feed",
+        "tele_worship",
+        "blessed_mummy",
+        "pet_flex",
+        "artifact_donations_5",
+        "meteor_expert",
+        "3_hit_firefluff",
+        "lochness_bad_cannon",
+        "hit_40_hell",
+        "the_multitasker",
+        "sand_baited_seed",
+        "gem_to_sd"
+    ],
+    "MEDIUM": [
+        "storm_already_active",
+        "mummified_skull_jafa",
+        "expensive_water",
+        "camel_back",
+        "badge_it_up",
+        "auto_bury_1000",
+        "lochness_colors",
+        "enchant_gem_mayor",
+        "100_guard_mage_accury",
+        "dig_and_ferment",
+        "taste_the_scimitar",
+        "3_fishing_cages",
+        "4_seaweed",
+        "lochness_20",
+        "lochness_magnetless",
+        "level_20",
+        "hell",
+        "chop_bamboo",
+        "beetle_kill_silver_mace",
+        "thieves_guild_entry2",
+        "high_five_tiger",
+        "boss_kill",
+        "grass_orb_tiger",
+        "three_eyed_fish",
+        "double_cakes",
+        "giant_iron",
+        "make_500_water_orbs",
+        "firebond_10_streak",
+        "fast_fire",
+        "insta_x2_gold_bars",
+        "hell_shovel_dig",
+        "hell_shovel_sand_dig",
+        "premium_beer_pub"
+    ],
+    "EASY": [
+        "booz_hunter",
+        "level_10",
+        "drink_potion",
+        "mine_iron",
+        "chop_craft_fill_bucket",
+        "chicken_wheat_seeds",
+        "make_bronze_arrows",
+        "slay_giant_rat",
+        "bury_10_giant_bones_bank",
+        "sand_bait",
+        "vandalized_cemetery_bones",
+        "finding_the_hunter",
+        "examine_algae",
+        "examine_rotten_logs",
+        "examine_mold_rock",
+        "run",
+        "gather_milk",
+        "right_click_item",
+        "right_click_player",
+        "door"
+    ],
+    "BABY": [
+        "travel",
+        "mine_it",
+        "forge_bronze",
+        "feather_drop",
+        "forge_arrow_heads",
+        "finalize_arrows",
+        "kill_raccoon"
+    ]
+}
+const achievements2 = [
 	["travel","mine_it","forge_bronze","feather_drop","forge_arrow_heads","finalize_arrows","kill_raccoon"],
 	["level_10","drink_potion","mine_iron","chop_craft_fill_bucket","chicken_wheat_seeds","make_bronze_arrows","slay_giant_rat","bury_10_giant_bones_bank","sand_bait","vandalized_cemetery_bones","finding_the_hunter","examine_algae","examine_rotten_logs","examine_mold_rock","run","gather_milk","right_click_item","right_click_player","door"],
 	["mummified_skull_jafa","expensive_water","camel_back","badge_it_up","auto_bury_1000","taste_the_scimitar","3_fishing_cages","4_seaweed","lochness_20","lochness_colors","lochness_magnetless","level_20","hell","chop_bamboo","beetle_kill_silver_mace","thieves_guild_entry2","high_five_tiger","boss_kill","enchant_gem_mayor","grass_orb_tiger","three_eyed_fish","double_cakes","giant_iron","make_500_water_orbs","firebond_10_streak","fast_fire","insta_x2_gold_bars","hell_shovel_dig","hell_shovel_sand_dig"],
@@ -69,7 +197,14 @@ const playerStats = ["hp","damage","arrow_damage","spell_damage","max_sleep_valu
 let currentTab = "skills";
 let tooltipPiece = "";
 let questsCompleted = 0;
-let achievementsCompleted = [0, 0, 0, 0, 0, 0];
+let achievementsCompleted = {
+	BABY: 0,
+	EASY: 0,
+	MEDIUM: 0,
+	HARD: 0,
+	ELITE: 0,
+	CHAMPION: 0
+};
 
 async function getData(newUser) {
 	let user;
@@ -190,15 +325,15 @@ function updateHeader() {
 	})
 	document.getElementById("quests").innerText = `${questsCompleted}/${quests.length}`
 
-	achievements.forEach((difficult, index) => {
-		difficult.forEach(achievement => {
+	for(let difficult in achievements) {
+		achievements[difficult].forEach(achievement => {
 			if(data.vars["ach_" + achievement] === "1") {
-				achievementsCompleted[index]++
+				achievementsCompleted[difficult]++
 			}
 		})
-	})
-	const achievementsCompletedTotal = achievementsCompleted.reduce((a, b)=>a + b);
-	document.getElementById("achievements").innerText = `${achievementsCompletedTotal}/${achievements.flat().length}`
+	}
+	const achievementsCompletedTotal = Object.values(achievementsCompleted).reduce((a, b)=>a + b);
+	document.getElementById("achievements").innerText = `${achievementsCompletedTotal}/${Object.values(achievements).flat().length}`
 }
 
 function updateEquipmentSlots() {
@@ -242,14 +377,13 @@ function updateAchievementsProgress() {
 	questProgressDiv.style.setProperty("--progress", questProgress);
 	document.getElementById("questsProgressTotal").innerText = questsCompleted;
 
-	const achievementsDifficults = ["tutorial","easy","medium","hard","elite","champion"];
-	achievementsDifficults.forEach((difficult, index) => {
-		const achievementsProgress = (achievementsCompleted[index] / achievements[index].length * 100).toFixed() + "%";
+	for(let difficult in achievements) {
+		const achievementsProgress = (achievementsCompleted[difficult] / achievements[difficult].length * 100).toFixed() + "%";
 		const achievementsProgressDiv = document.getElementById(difficult + "AchievementProgress");
 		achievementsProgressDiv.innerText = achievementsProgress
 		achievementsProgressDiv.style.setProperty("--progress", achievementsProgress);
-		document.getElementById(difficult + "AchievementProgressTotal").innerText = achievementsCompleted[index];
-	})
+		document.getElementById(difficult + "AchievementProgressTotal").innerText = achievementsCompleted[difficult];
+	}
 }
 
 function updateMinigames() {
@@ -260,6 +394,15 @@ function updateMinigames() {
 		document.getElementById("minigame-bondfire").insertAdjacentHTML("beforeend", bondfireData);
 	} else {
 		document.getElementById("minigame-bondfire").insertAdjacentHTML("beforeend", "<span>YET TO BE COMPLETED</span>");
+	}
+
+	//Bondfire
+	const evilTreePointsTotal = parseInt(data.vars.evil_tree_points_total) || 0;
+	if(evilTreePointsTotal !== 0) {
+		const evilTreeData = `<span>${evilTreePointsTotal.toLocaleString("en-US")} <b>Total Evil Tree Points</b></span>`;
+		document.getElementById("minigame-evilTree").insertAdjacentHTML("beforeend", evilTreeData);
+	} else {
+		document.getElementById("minigame-evilTree").insertAdjacentHTML("beforeend", "<span>YET TO BE COMPLETED</span>");
 	}
 	
 	//Deranged Mage

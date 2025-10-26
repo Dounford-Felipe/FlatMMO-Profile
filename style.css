@@ -290,6 +290,12 @@ a {
     }
 }
 
+.enemy:hover {
+    background-color: var(--color3);
+    border-color: aliceblue;
+    cursor: pointer;
+}
+
 dialog[open] {
     display: flex;
     flex-direction: column;
