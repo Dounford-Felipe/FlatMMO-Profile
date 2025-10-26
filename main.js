@@ -183,14 +183,7 @@ const achievements = {
         "kill_raccoon"
     ]
 }
-const achievements2 = [
-	["travel","mine_it","forge_bronze","feather_drop","forge_arrow_heads","finalize_arrows","kill_raccoon"],
-	["level_10","drink_potion","mine_iron","chop_craft_fill_bucket","chicken_wheat_seeds","make_bronze_arrows","slay_giant_rat","bury_10_giant_bones_bank","sand_bait","vandalized_cemetery_bones","finding_the_hunter","examine_algae","examine_rotten_logs","examine_mold_rock","run","gather_milk","right_click_item","right_click_player","door"],
-	["mummified_skull_jafa","expensive_water","camel_back","badge_it_up","auto_bury_1000","taste_the_scimitar","3_fishing_cages","4_seaweed","lochness_20","lochness_colors","lochness_magnetless","level_20","hell","chop_bamboo","beetle_kill_silver_mace","thieves_guild_entry2","high_five_tiger","boss_kill","enchant_gem_mayor","grass_orb_tiger","three_eyed_fish","double_cakes","giant_iron","make_500_water_orbs","firebond_10_streak","fast_fire","insta_x2_gold_bars","hell_shovel_dig","hell_shovel_sand_dig"],
-	["meteor_expert","no_reflect_required","giant_flufflare_rain","weaponless_giant_flufflare","500_titanium_damage_orbs","3_hit_firefluff","the_lochness_mvp","lochness_bad_cannon","hit_40_hell","level_40","the_multitasker","sand_baited_seed","100_deranged_mage_streak","tit_pickaxe_charcoal_wall","5_charcoal_mined","plunder_the_shark","shining_titanium_arrow","poison_cactus","gem_to_sd"],
-	["silkfang_solo_foodless","flawless_quick_deranged_mage","grow_a_cactus","level_60","hunting_mask_kill","100_deranged_mage_hungry_streak","lochness_solo","woodenstaff_giant_flufflare","heating_the_desert","ancient_pickaxe_meteor"],
-	["level_80"],
-]
+
 const slots = ["head", "body", "legs", "boots", "gloves", "hat", "necklace", "weapon", "sigil"];
 const playerStats = ["hp","damage","arrow_damage","spell_damage","max_sleep_value","accuracy","defence","magic_defence"]
 
