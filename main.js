@@ -37,6 +37,8 @@ const achievements = {
         "lochness_solo"
     ],
     "HARD": [
+        "evil_omboko_axe",
+        "mineless_graphite_bucket",
         "hunter_guide_storm",
         "no_reflect_required",
         "giant_flufflare_rain",
@@ -56,6 +58,8 @@ const achievements = {
         "blessed_mummy",
         "pet_flex",
         "artifact_donations_5",
+        "graphite_heat",
+        "volcano_eels",
         "meteor_expert",
         "3_hit_firefluff",
         "lochness_bad_cannon",
