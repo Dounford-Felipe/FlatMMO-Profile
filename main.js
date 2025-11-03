@@ -1,58 +1,6 @@
 let data;
 let enemiesData = [];
 
-const equipmentData = {
-	titanium_helmet: {
-		name: "Titanium Helmet",
-		defence: 7,
-		level: 65
-	},
-	titanium_body: {
-		name: "Titanium Body",
-		defence: 7,
-		level: 65
-	},
-	titanium_legs: {
-		name: "Titanium Legs",
-		defence: 7,
-		level: 65
-	},
-	crocodile_legs: {
-		name: "Crocodile Legs",
-		magic_defence: 4,
-		archery_damage: 4,
-		level: 40
-	},
-	titanium_gloves: {
-		name: "Titanium Gloves",
-		defence: 7,
-		level: 65
-	},
-	titanium_boots: {
-		name: "Titanium Boots",
-		defence: 7,
-		level: 65
-	},
-	straw_hat: {
-		name: "Straw Hat",
-		bonus: "+10 farming levels on harvesting"
-	},
-	sapphire_necklace: {
-		name: "Sapphire Necklace",
-		accuracy: 2
-	},
-	titanium_mace: {
-		name: "Titanium Mace",
-		damage: 10,
-		accuracy: 8,
-		level: 70
-	},
-	tree_sigil: {
-		name: "Tree Sigil"
-	}
-}
-
-const tooltipStats = ["damage","archery_damage","magic_damage","accuracy","defence","magic_defence","level","sell_price", "bonus"]
 const quests = [
     "heating_homes",
     "lost_cat",
@@ -82,6 +30,7 @@ const achievements = {
         "ancient_pickaxe_meteor",
         "spirit_lover",
         "artifact_donations_15",
+        "lucky_pickpocket_seed",
         "10000_kills",
         "silkfang_solo_foodless",
         "flawless_quick_deranged_mage",
@@ -89,6 +38,8 @@ const achievements = {
         "lochness_solo"
     ],
     "HARD": [
+        "evil_omboko_axe",
+        "mineless_graphite_bucket",
         "hunter_guide_storm",
         "no_reflect_required",
         "giant_flufflare_rain",
@@ -108,6 +59,8 @@ const achievements = {
         "blessed_mummy",
         "pet_flex",
         "artifact_donations_5",
+        "graphite_heat",
+        "volcano_eels",
         "meteor_expert",
         "3_hit_firefluff",
         "lochness_bad_cannon",
@@ -153,6 +106,7 @@ const achievements = {
     ],
     "EASY": [
         "booz_hunter",
+        "citizen_pickpocket",
         "level_10",
         "drink_potion",
         "mine_iron",
@@ -186,6 +140,7 @@ const achievements = {
 
 const slots = ["head", "body", "legs", "boots", "gloves", "hat", "necklace", "weapon", "sigil", "pet"];
 const playerStats = ["hp","damage","arrow_damage","spell_damage","max_sleep_value","accuracy","defence","magic_defence"]
+const tooltipStats = ["damage","archery_damage","magic_damage","accuracy","defence","magic_defence","level","sell_price", "bonus"]
 
 let currentTab = "skills";
 let tooltipPiece = "";
@@ -355,11 +310,28 @@ function updateStats() {
 	})
 }
 
+function get_level(playerXP) {
+    if (playerXP == null)
+        return 1;
+    if(playerXP <= 50)
+        return 1;
+
+    var iMax = 100;
+
+    for(var i = 1; i <= iMax; i++) {
+        var power = 3 + (i / 200);
+        var xp = Math.pow(i, power) + (i * 50);
+        if(playerXP < xp)
+            return i - 1;
+    }
+    return iMax;
+}
+
 function updateLevels() {
-	const skills = ["melee", "archery", "magic", "health", "worship", "mining", "forging", "crafting", "enchantment", "fishing", "woodcutting", "firemake", "cooking", "brewing", "farming", "hunting"];
+	const skills = ["melee", "archery", "magic", "health", "worship", "mining", "forging", "crafting", "enchantment", "fishing", "woodcutting", "firemake", "cooking", "brewing", "farming", "hunting", "stealing"];
 
 	skills.forEach(skill=>{
-		document.getElementById(skill + "Level").innerText = data[skill + "_level"]
+		document.getElementById(skill + "Level").innerText = get_level(data.vars[skill + "_xp"])
 	})
 }
 
