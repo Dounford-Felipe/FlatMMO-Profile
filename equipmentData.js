@@ -558,7 +558,63 @@ const equipmentData = {
 	//Hats
 	straw_hat: {
 		name: "Straw Hat",
-		bonus: "+10 farming melee_levels on harvesting",
+		bonus: "+10 farming levels on harvesting",
+		price: 0
+	},
+	chefs_hat: {
+		name: "Chef's Hat",
+		bonus: "Decreases the burn chance by 5% while cooking",
+		price: 0
+	},
+	//Head
+	thieves_hood: {
+		name: "Thieves Hood",
+		bonus: "Allows to enter the Thieve's Guild",
+		price: 0
+	},
+	hunting_mask: {
+		name: "Hunting Mask",
+		bonus: "Doubles the loot from monster during expeditions",
+		price: 0
+	},
+	melee_hunting_mask: {
+		name: "Melee Hunting Mask",
+		bonus: "Increases melee damage by 15% during expeditions",
+		price: 0
+	},
+	archery_hunting_mask: {
+		name: "Archery Hunting Mask",
+		bonus: "Increases archery damage by 15% during expeditions",
+		price: 0
+	},
+	magic_hunting_mask: {
+		name: "Magic Hunting Mask",
+		bonus: "Increases magic damage by 15% during expeditions",
+		price: 0
+	},
+	
+	//Gloves
+	pyro_gloves: {
+		name: "Pyro Gloves",
+		bonus: "Decreases the chance of taking damage from Bondfire by 75%",
+		price: 0
+	},
+	soaked_gloves: {
+		name: "Soaked Gloves",
+		bonus: "Fishes faster during Lochness Monster Fight",
+		price: 0
+	},
+	leafy_gloves: {
+		name: "Leafy Gloves",
+		bonus: "Doubles reward points and woodcutting XP while chopping Evil Trees",
+		price: 0
+	},
+	
+	//Boots
+	stone_boots: {
+		name: "Stone Boots",
+		bonus: "Stops heat damage from Hell Layer 2",
+		defence: 7,
 		price: 0
 	},
 	
