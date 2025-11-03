@@ -25,31 +25,31 @@ const equipmentData = {
 	bronze_helmet: {
 		name: "Bronze Helmet",
 		defence: 1,
-		level: 1,
+		melee_level: 1,
 		price: 0
 	},
 	bronze_body: {
 		name: "Bronze Body",
 		defence: 1,
-		level: 1,
+		melee_level: 1,
 		price: 0
 	},
 	bronze_legs: {
 		name: "Bronze Legs",
 		defence: 1,
-		level: 1,
+		melee_level: 1,
 		price: 0
 	},
 	bronze_gloves: {
 		name: "Bronze Gloves",
 		defence: 1,
-		level: 1,
+		melee_level: 1,
 		price: 0
 	},
 	bronze_boots: {
 		name: "Bronze Boots",
 		defence: 1,
-		level: 1,
+		melee_level: 1,
 		price: 0
 	},
 
@@ -57,31 +57,31 @@ const equipmentData = {
 	iron_helmet: {
 		name: "Iron Helmet",
 		defence: 2,
-		level: 10,
+		melee_level: 10,
 		price: 0
 	},
 	iron_body: {
 		name: "Iron Body",
 		defence: 2,
-		level: 10,
+		melee_level: 10,
 		price: 0
 	},
 	iron_legs: {
 		name: "Iron Legs",
 		defence: 2,
-		level: 10,
+		melee_level: 10,
 		price: 0
 	},
 	iron_gloves: {
 		name: "Iron Gloves",
 		defence: 2,
-		level: 10,
+		melee_level: 10,
 		price: 0
 	},
 	iron_boots: {
 		name: "Iron Boots",
 		defence: 2,
-		level: 10,
+		melee_level: 10,
 		price: 0
 	},
 
@@ -89,31 +89,31 @@ const equipmentData = {
 	silver_helmet: {
 		name: "Silver Helmet",
 		defence: 3,
-		level: 20,
+		melee_level: 20,
 		price: 0
 	},
 	silver_body: {
 		name: "Silver Body",
 		defence: 3,
-		level: 20,
+		melee_level: 20,
 		price: 0
 	},
 	silver_legs: {
 		name: "Silver Legs",
 		defence: 3,
-		level: 20,
+		melee_level: 20,
 		price: 0
 	},
 	silver_gloves: {
 		name: "Silver Gloves",
 		defence: 3,
-		level: 20,
+		melee_level: 20,
 		price: 0
 	},
 	silver_boots: {
 		name: "Silver Boots",
 		defence: 3,
-		level: 20,
+		melee_level: 20,
 		price: 0
 	},
 
@@ -121,31 +121,31 @@ const equipmentData = {
 	gold_helmet: {
 		name: "Gold Helmet",
 		defence: 4,
-		level: 30,
+		melee_level: 30,
 		price: 0
 	},
 	gold_body: {
 		name: "Gold Body",
 		defence: 4,
-		level: 30,
+		melee_level: 30,
 		price: 0
 	},
 	gold_legs: {
 		name: "Gold Legs",
 		defence: 4,
-		level: 30,
+		melee_level: 30,
 		price: 0
 	},
 	gold_gloves: {
 		name: "Gold Gloves",
 		defence: 4,
-		level: 30,
+		melee_level: 30,
 		price: 0
 	},
 	gold_boots: {
 		name: "Gold Boots",
 		defence: 4,
-		level: 30,
+		melee_level: 30,
 		price: 0
 	},
 
@@ -153,31 +153,31 @@ const equipmentData = {
 	promethium_helmet: {
 		name: "Promethium Helmet",
 		defence: 6,
-		level: 50,
+		melee_level: 50,
 		price: 0
 	},
 	promethium_body: {
 		name: "Promethium Body",
 		defence: 6,
-		level: 50,
+		melee_level: 50,
 		price: 0
 	},
 	promethium_legs: {
 		name: "Promethium Legs",
 		defence: 6,
-		level: 50,
+		melee_level: 50,
 		price: 0
 	},
 	promethium_gloves: {
 		name: "Promethium Gloves",
 		defence: 6,
-		level: 50,
+		melee_level: 50,
 		price: 0
 	},
 	promethium_boots: {
 		name: "Promethium Boots",
 		defence: 6,
-		level: 50,
+		melee_level: 50,
 		price: 0
 	},
 
@@ -185,252 +185,380 @@ const equipmentData = {
 	titanium_helmet: {
 		name: "Titanium Helmet",
 		defence: 7,
-		level: 65,
+		melee_level: 65,
 		price: 0
 	},
 	titanium_body: {
 		name: "Titanium Body",
 		defence: 7,
-		level: 65,
+		melee_level: 65,
 		price: 0
 	},
 	titanium_legs: {
 		name: "Titanium Legs",
 		defence: 7,
-		level: 65,
+		melee_level: 65,
 		price: 0
 	},
 	titanium_gloves: {
 		name: "Titanium Gloves",
 		defence: 7,
-		level: 65,
+		melee_level: 65,
 		price: 0
 	},
 	titanium_boots: {
 		name: "Titanium Boots",
 		defence: 7,
-		level: 65,
+		melee_level: 65,
+		price: 0
+	},
+
+	//Ancient
+	ancient_helmet: {
+		name: "Ancient Helmet",
+		defence: 9,
+		melee_level: 90,
+		price: 0
+	},
+	ancient_body: {
+		name: "Ancient Body",
+		defence: 9,
+		melee_level: 90,
+		price: 0
+	},
+	ancient_legs: {
+		name: "Ancient Legs",
+		defence: 9,
+		melee_level: 90,
+		price: 0
+	},
+	ancient_gloves: {
+		name: "Ancient Gloves",
+		defence: 9,
+		melee_level: 90,
+		price: 0
+	},
+	ancient_boots: {
+		name: "Ancient Boots",
+		defence: 9,
+		melee_level: 90,
 		price: 0
 	},
 
 	//Snake
-	titanium_helmet: {
-		name: "Titanium Helmet",
-		magic_defence: 7,
+	snakeskin_mask: {
+		name: "Snakeskin Mask",
+		magic_defence: 1,
 		archery_damage: 1,
-		level: 65,
+		archery_level: 10,
 		price: 0
 	},
-	titanium_body: {
-		name: "Titanium Body",
-		magic_defence: 7,
+	snakeskin_body: {
+		name: "Snakeskin Body",
+		magic_defence: 1,
 		archery_damage: 1,
-		level: 65,
+		archery_level: 10,
 		price: 0
 	},
-	titanium_legs: {
-		name: "Titanium Legs",
-		magic_defence: 7,
+	snakeskin_legs: {
+		name: "Snakeskin Legs",
+		magic_defence: 1,
 		archery_damage: 1,
-		level: 65,
+		archery_level: 10,
 		price: 0
 	},
-	titanium_gloves: {
-		name: "Titanium Gloves",
-		magic_defence: 7,
+	snakeskin_gloves: {
+		name: "Snakeskin Gloves",
+		magic_defence: 1,
 		archery_damage: 1,
-		level: 65,
+		archery_level: 10,
 		price: 0
 	},
-	titanium_boots: {
-		name: "Titanium Boots",
-		magic_defence: 7,
+	snakeskin_boots: {
+		name: "Snakeskin Boots",
+		magic_defence: 1,
 		archery_damage: 1,
-		level: 65,
+		archery_level: 10,
 		price: 0
 	},
-	//Snake
-	titanium_helmet: {
-		name: "Titanium Helmet",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	//Bear
+	bear_fur_mask: {
+		name: "Bear Fur Mask",
+		magic_defence: 2,
+		archery_damage: 2,
+		archery_level: 20,
 		price: 0
 	},
-	titanium_body: {
-		name: "Titanium Body",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	bear_fur_body: {
+		name: "Bear Fur Body",
+		magic_defence: 2,
+		archery_damage: 2,
+		archery_level: 20,
 		price: 0
 	},
-	titanium_legs: {
-		name: "Titanium Legs",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	bear_fur_legs: {
+		name: "Bear Fur Legs",
+		magic_defence: 2,
+		archery_damage: 2,
+		archery_level: 20,
 		price: 0
 	},
-	titanium_gloves: {
-		name: "Titanium Gloves",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	bear_fur_gloves: {
+		name: "Bear Fur Gloves",
+		magic_defence: 2,
+		archery_damage: 2,
+		archery_level: 20,
 		price: 0
 	},
-	titanium_boots: {
-		name: "Titanium Boots",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	bear_fur_boots: {
+		name: "Bear Fur Boots",
+		magic_defence: 2,
+		archery_damage: 2,
+		archery_level: 20,
 		price: 0
 	},
-	//Snake
-	titanium_helmet: {
-		name: "Titanium Helmet",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	//Tiger
+	tiger_fur_mask: {
+		name: "Tiger Fur Mask",
+		magic_defence: 3,
+		archery_damage: 3,
+		archery_level: 30,
 		price: 0
 	},
-	titanium_body: {
-		name: "Titanium Body",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	tiger_fur_body: {
+		name: "Tiger Fur Body",
+		magic_defence: 3,
+		archery_damage: 3,
+		archery_level: 30,
 		price: 0
 	},
-	titanium_legs: {
-		name: "Titanium Legs",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	tiger_fur_legs: {
+		name: "Tiger Fur Legs",
+		magic_defence: 3,
+		archery_damage: 3,
+		archery_level: 30,
 		price: 0
 	},
-	titanium_gloves: {
-		name: "Titanium Gloves",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	tiger_fur_gloves: {
+		name: "Tiger Fur Gloves",
+		magic_defence: 3,
+		archery_damage: 3,
+		archery_level: 30,
 		price: 0
 	},
-	titanium_boots: {
-		name: "Titanium Boots",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	tiger_fur_boots: {
+		name: "Tiger Fur Boots",
+		magic_defence: 3,
+		archery_damage: 3,
+		archery_level: 30,
 		price: 0
 	},
-	//Snake
-	titanium_helmet: {
-		name: "Titanium Helmet",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	//Crocodile
+	crocodile_mask: {
+		name: "Crocodile Mask",
+		magic_defence: 4,
+		archery_damage: 4,
+		archery_level: 40,
 		price: 0
 	},
-	titanium_body: {
-		name: "Titanium Body",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	crocodile_body: {
+		name: "Crocodile Body",
+		magic_defence: 4,
+		archery_damage: 4,
+		archery_level: 40,
 		price: 0
 	},
-	titanium_legs: {
-		name: "Titanium Legs",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	crocodile_legs: {
+		name: "Crocodile Legs",
+		magic_defence: 4,
+		archery_damage: 4,
+		archery_level: 40,
 		price: 0
 	},
-	titanium_gloves: {
-		name: "Titanium Gloves",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	crocodile_gloves: {
+		name: "Crocodile Gloves",
+		magic_defence: 4,
+		archery_damage: 4,
+		archery_level: 40,
 		price: 0
 	},
-	titanium_boots: {
-		name: "Titanium Boots",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	crocodile_boots: {
+		name: "Crocodile Boots",
+		magic_defence: 4,
+		archery_damage: 4,
+		archery_level: 40,
 		price: 0
 	},
-	//Snake
-	titanium_helmet: {
-		name: "Titanium Helmet",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	//Silkfang
+	silkfang_mask: {
+		name: "Silkfang Mask",
+		magic_defence: 5,
+		archery_damage: 5,
+		archery_level: 50,
 		price: 0
 	},
-	titanium_body: {
-		name: "Titanium Body",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	silkfang_body: {
+		name: "Silkfang Body",
+		magic_defence: 5,
+		archery_damage: 5,
+		archery_level: 50,
 		price: 0
 	},
-	titanium_legs: {
-		name: "Titanium Legs",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	silkfang_legs: {
+		name: "Silkfang Legs",
+		magic_defence: 5,
+		archery_damage: 5,
+		archery_level: 50,
 		price: 0
 	},
-	titanium_gloves: {
-		name: "Titanium Gloves",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	silkfang_gloves: {
+		name: "Silkfang Gloves",
+		magic_defence: 5,
+		archery_damage: 5,
+		archery_level: 50,
 		price: 0
 	},
-	titanium_boots: {
-		name: "Titanium Boots",
-		magic_defence: 7,
-		archery_damage: 1,
-		level: 65,
+	silkfang_boots: {
+		name: "Silkfang Boots",
+		magic_defence: 5,
+		archery_damage: 5,
+		archery_level: 50,
 		price: 0
 	},
 
 
 	//Blue Mage
-	titanium_helmet: {
-		name: "Titanium Helmet",
-		magic_damage: 7,
-		level: 65,
+	blue_mage_hat: {
+		name: "Blue Mage Hat",
+		magic_damage: 1,
+		magic_level: 5,
 		price: 0
 	},
-	titanium_body: {
-		name: "Titanium Body",
-		magic_damage: 7,
-		level: 65,
+	blue_mage_top: {
+		name: "Blue Mage Top",
+		magic_damage: 2,
+		magic_level: 5,
 		price: 0
 	},
-	titanium_legs: {
-		name: "Titanium Legs",
-		magic_damage: 7,
-		level: 65,
+	blue_mage_skirt: {
+		name: "Blue Mage Skirt",
+		magic_damage: 2,
+		magic_level: 5,
 		price: 0
 	},
-	titanium_gloves: {
-		name: "Titanium Gloves",
-		magic_damage: 7,
-		level: 65,
+	blue_mage_gloves: {
+		name: "Blue Mage Gloves",
+		magic_damage: 1,
+		magic_level: 5,
 		price: 0
 	},
-	titanium_boots: {
-		name: "Titanium Boots",
-		magic_damage: 7,
-		level: 65,
+	blue_mage_boots: {
+		name: "Blue Mage Boots",
+		magic_damage: 1,
+		magic_level: 5,
 		price: 0
 	},
 
+	//Red Mage
+	red_mage_hat: {
+		name: "Red Mage Hat",
+		magic_damage: 2,
+		magic_level: 15,
+		price: 0
+	},
+	red_mage_top: {
+		name: "Red Mage Top",
+		magic_damage: 3,
+		magic_level: 15,
+		price: 0
+	},
+	red_mage_skirt: {
+		name: "Red Mage Skirt",
+		magic_damage: 3,
+		magic_level: 15,
+		price: 0
+	},
+	red_mage_gloves: {
+		name: "Red Mage Gloves",
+		magic_damage: 2,
+		magic_level: 15,
+		price: 0
+	},
+	red_mage_boots: {
+		name: "Red Mage Boots",
+		magic_damage: 2,
+		magic_level: 15,
+		price: 0
+	},
+
+	//Druid Mage
+	druid_headband: {
+		name: "Druid Headband",
+		magic_damage: 4,
+		magic_level: 35,
+		price: 0
+	},
+	druid_top: {
+		name: "Druid Top",
+		magic_damage: 5,
+		magic_level: 35,
+		price: 0
+	},
+	druid_skirt: {
+		name: "Druid Skirt",
+		magic_damage: 5,
+		magic_level: 35,
+		price: 0
+	},
+	druid_gloves: {
+		name: "Druid Gloves",
+		magic_damage: 4,
+		magic_level: 35,
+		price: 0
+	},
+	druid_boots: {
+		name: "Druid Boots",
+		magic_damage: 4,
+		magic_level: 35,
+		price: 0
+	},
+
+	//Desert Mage
+	desert_mage_coif: {
+		name: "Desert Mage Coif",
+		magic_damage: 5,
+		magic_level: 55,
+		price: 0
+	},
+	desert_mage_top: {
+		name: "Desert Mage Top",
+		magic_damage: 6,
+		magic_level: 55,
+		price: 0
+	},
+	desert_mage_skirt: {
+		name: "Desert Mage Skirt",
+		magic_damage: 6,
+		magic_level: 55,
+		price: 0
+	},
+	desert_mage_gloves: {
+		name: "Desert Mage Gloves",
+		magic_damage: 5,
+		magic_level: 55,
+		price: 0
+	},
+	desert_mage_boots: {
+		name: "Desert Mage Boots",
+		magic_damage: 5,
+		magic_level: 55,
+		price: 0
+	},
+		
 	//Hats
 	straw_hat: {
 		name: "Straw Hat",
-		bonus: "+10 farming levels on harvesting",
+		bonus: "+10 farming melee_levels on harvesting",
 		price: 0
 	},
 	
@@ -441,7 +569,7 @@ const equipmentData = {
 		name: "Titanium Mace",
 		damage: 10,
 		accuracy: 8,
-		level: 70,
+		melee_level: 70,
 		price: 0
 	},
 	//Scimitar

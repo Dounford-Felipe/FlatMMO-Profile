@@ -30,6 +30,7 @@ const achievements = {
         "ancient_pickaxe_meteor",
         "spirit_lover",
         "artifact_donations_15",
+        "lucky_pickpocket_seed",
         "10000_kills",
         "silkfang_solo_foodless",
         "flawless_quick_deranged_mage",
@@ -105,6 +106,7 @@ const achievements = {
     ],
     "EASY": [
         "booz_hunter",
+        "citizen_pickpocket",
         "level_10",
         "drink_potion",
         "mine_iron",
@@ -308,11 +310,28 @@ function updateStats() {
 	})
 }
 
+function get_level(playerXP) {
+    if (playerXP == null)
+        return 1;
+    if(playerXP <= 50)
+        return 1;
+
+    var iMax = 100;
+
+    for(var i = 1; i <= iMax; i++) {
+        var power = 3 + (i / 200);
+        var xp = Math.pow(i, power) + (i * 50);
+        if(playerXP < xp)
+            return i - 1;
+    }
+    return iMax;
+}
+
 function updateLevels() {
-	const skills = ["melee", "archery", "magic", "health", "worship", "mining", "forging", "crafting", "enchantment", "fishing", "woodcutting", "firemake", "cooking", "brewing", "farming", "hunting"];
+	const skills = ["melee", "archery", "magic", "health", "worship", "mining", "forging", "crafting", "enchantment", "fishing", "woodcutting", "firemake", "cooking", "brewing", "farming", "hunting", "stealing"];
 
 	skills.forEach(skill=>{
-		document.getElementById(skill + "Level").innerText = data[skill + "_level"]
+		document.getElementById(skill + "Level").innerText = get_level(data.vars[skill + "_xp"])
 	})
 }
 
